@@ -1,0 +1,183 @@
+.preheader,
+.header {
+	padding: 0 50px;
+}
+
+.preheader {
+	display: flex;
+	justify-content: space-between;
+	background-color: $color_eee;
+	align-items: center;
+	height: 45px;
+
+	&__prices {
+		display: flex;
+		align-items: baseline;
+	}
+
+	&__title {
+		@include fontStyle($pt_font, 14px, 14px);
+		color: $color_999;
+	}
+
+	&__fuel {
+		margin-left: 20px;
+		cursor: pointer;
+
+		&-item {
+			@include fontStyle($pt_font, 14px, 14px);
+			color: $color_333;
+			margin-bottom: 10px;
+			position: relative;
+			padding-right: 20px;
+
+			&:after {
+				@include before(calc(50% - 3px), auto, auto, 0);
+				@include backgroundImage('/images/arrow-open.png', center, contain);
+				width: 10px;
+				height: 6px;
+				transition: $transition;
+			}
+
+			&.active {
+				&:after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		&-other {
+			display: none;
+		    position: absolute;
+		    padding-top: 10px;
+		    background-color: $color_eee;
+		    padding-left: 10px;
+		    padding-right: 10px;
+		    margin-left: -10px;
+		    margin-right: -10px;
+
+		    .preheader__fuel-item {
+		    	&:after {
+		    		display: none;
+		    	}
+		    }
+		}
+	}
+
+	&__oil {
+		display: flex;
+		align-items: baseline;
+
+		&-item {
+			padding: 0 20px;
+		}
+
+		&-brand {
+			@include fontStyle($pt_font, 14px, 14px);
+			color: $color_333;
+		}
+
+		&--down {
+			position: relative;
+			color: $color_cc0018;
+
+			&:after {
+				content: '\2193';
+				position: absolute;
+				top: calc(50% - 7.5px);
+				right: -20px;
+				width: 10px;
+				height: 15px;
+			}
+		}
+
+		&--up {
+			position: relative;
+			color: $color_339933;
+
+			&:after {
+				content: '\2191';
+				position: absolute;
+				top: calc(50% - 7.5px);
+				right: -20px;
+				width: 10px;
+				height: 15px;
+			}
+		}
+	}
+}
+
+.header {
+	display: flex;
+	height: 115px;
+	border-bottom: 3px solid $color_cc0018;
+
+	&__left,
+	&__right {
+		width: 50%;
+		flex: 0 0 50%;
+		display: flex;
+		align-items: center;
+	}
+
+	&__left {
+		padding-right: 20px;
+	}
+
+	&__right {
+		padding-left: 20px;
+		justify-content: flex-end;
+	}
+
+	.burger {
+		margin-right: 40px;
+
+		&__item {
+			display: block;
+			width: 30px;
+			height: 5px;
+			background-color: $color_000;
+			margin-bottom: 3px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__logo {
+		width: 340px;
+		flex: 0 0 340px;
+		height: 42px;
+		@include backgroundImage('/images/header-logo.png', center, contain);
+		margin-right: 30px;
+
+		&-description {
+			width: 245px;
+			flex: 0 0 245px;
+			@include fontStyle($pt_font, 14px, 14px);
+			color: $color_050100;
+		}
+	}
+
+	&__phone {
+		@include fontStyle($pt_font, 22px, 22px, 700);
+		color: $color_339933;
+	}
+
+	.btn {
+		margin-left: 35px;
+	}
+}
+
+.text-green {
+	color: $color_339933;
+}
+
+.text-red {
+	color: $color_cc0018;
+}
+
+.text-dark {
+	color: $color_333;
+}

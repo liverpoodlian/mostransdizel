@@ -1,0 +1,295 @@
+* {
+	box-sizing: border-box;
+}
+
+body,
+h1,
+.h1,
+h2,
+.h2 {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ a {
+ 	text-decoration: none;
+ }
+
+ .section {
+ 	&--bg {
+ 		background-color: $color_e7e7e7;
+ 	}
+ }
+
+ .content {
+ 	display: flex;
+ 	width: 1080px;
+ 	@include marginAuto;
+
+ 	&__title {
+ 		position: relative;
+ 		@include fontStyle($pt_font, 44px, 44px, 700);
+ 		color: $color_050100;
+ 		text-transform: uppercase;
+ 		text-align: center;
+ 		width: 100%;
+ 		flex: 0 0 100%;
+ 		padding-bottom: 25px;
+ 		margin-top: 75px;
+
+ 		&:after {
+ 			@include before(auto, calc(50% - 90px), 0);
+ 			width: 180px;
+ 			height: 3px;
+ 			background-color: $color_cc0018;
+ 		}
+ 	}
+ }
+
+ .pluses {
+ 	padding: 45px 0;
+ 	justify-content: space-between;
+
+ 	&__col {
+ 		width: 375px;
+ 		flex: 0 0 375px;
+
+ 		&:last-child {
+ 			.pluses__item {
+ 				padding-left: 0;
+ 				padding-right: 50px;
+
+ 				&:before {
+ 					left: auto;
+ 					right: 0;
+ 				}
+ 			}
+ 		}
+ 	}
+
+ 	&__item {
+ 		position: relative;
+ 		@include fontStyle($pt_font, 18px, 18px, 700);
+ 		color: $color_050100;
+ 		padding-left: 50px;
+ 		margin-bottom: 30px;
+ 		min-height: 23px;
+
+ 		&:last-child {
+ 			margin-bottom: 0;
+ 		}
+
+ 		&:before {
+ 			@include before(0, 0);
+ 			@include backgroundImage('/images/checkbox-pluses.png', center, contain);
+ 			width: 23px;
+ 			height: 23px;
+ 		}
+ 	}
+
+ 	&__title {
+ 		width: 225px;
+ 		flex: 0 0 225px;
+ 		@include fontStyle($pt_font, 44px, 50px, 700);
+ 		color: $color_339933;
+ 		text-align: center;
+ 		text-transform: uppercase;
+ 	}
+
+ 	&--years {
+ 		margin-top: 15px;
+
+ 		.pluses__title {
+ 			@include fontStyle($pt_font, 18px, 26px, 700);
+ 			color: $color_cc0018;
+ 			text-transform: none;
+ 			width: 250px;
+ 			flex: 0 0 250px;
+ 			margin-top: -30px;
+ 		}
+
+ 		.pluses__col {
+ 			margin-top: 20px;
+
+ 			&:last-child {
+ 				text-align: right;
+ 			}
+ 		}
+
+ 		.pluses__years {
+ 			@include fontStyle($pt_font, 230px, 230px, 700);
+ 			display: block;
+ 			letter-spacing: -20px;
+ 			margin-left: -20px;
+ 		}
+ 	}
+ }
+
+ .useful {
+ 	margin-top: 70px;
+ 	margin-bottom: 30px;
+
+ 	&__item {
+ 		width: 25%;
+ 		flex: 0 0 25%;
+ 		display: flex;
+ 		flex-direction: column;
+ 		justify-content: space-between;
+ 		align-items: flex-start;
+
+ 		&.useful__item--top {
+ 			position: relative;
+
+ 			&:after {
+ 				@include before(90px, calc(50% - 70px));
+ 				@include backgroundImage('/images/top.png', center, contain);
+ 				width: 63px;
+ 				height: 74px;
+ 			}
+ 		}
+ 	}
+
+ 	&__name {
+ 		@include fontStyle($pt_font, 18px, 18px, 700);
+ 		color: $color_050100;
+ 		margin-top: 15px;
+ 	}
+
+ 	&--text-center {
+ 		margin-top: 35px;
+
+ 		.useful__item {
+ 			justify-content: flex-start;
+ 			align-items: center;
+ 		}
+
+ 		.useful__name {
+ 			display: flex;
+ 			justify-content: center;
+ 			width: 185px;
+ 			flex: 0 0 185px;
+
+ 			.text-green {
+ 				margin-right: 5px;
+ 			}
+ 		}
+ 	}
+ }
+
+ .certificates {
+ 	padding: 0 50px;
+ 	justify-content: space-between;
+ 	margin-top: 45px;
+
+ 	&__item {
+ 		width: 210px;
+ 		flex: 0 0 210px;
+ 	}
+
+ 	&__img {
+ 		width: 210px;
+ 		height: 280px;
+ 		border: 5px solid $color_e7e7e7;
+ 		margin-bottom: 25px;
+ 	}
+
+ 	&__name {
+ 		@include fontStyle($pt_font, 16px, 16px);
+ 		font-style: italic;
+ 		color: $color_666;
+ 		text-align: center;
+ 	}
+ }
+
+ .faq {
+ 	flex-wrap: wrap;
+ 	margin-top: 35px;
+ 	margin-bottom: 90px;
+
+ 	&__left,
+ 	&__right {
+ 		width: calc(50% - 20px);
+ 		flex: 0 0 calc(50% - 20px);
+ 		margin: 0 10px;
+ 	}
+
+ 	&__item {
+ 		position: relative;
+ 		display: flex;
+ 		flex-wrap: wrap;
+ 		align-items: center;
+ 		margin-bottom: 5px;
+
+ 		&:before {
+ 			@include before(0, auto, auto, 70px);
+ 			height: 65px;
+ 			width: 1px;
+ 			background-color: $color_fff;
+ 		}
+
+ 		&:after {
+ 			@include before(0, auto, auto, 0);
+ 			@include backgroundImage('/images/arrow-open-white.png', center);
+ 			width: 72px;
+ 			height: 65px;
+ 			transition: $transition;
+ 		}
+
+ 		&.faq__item--open {
+
+ 			.faq__question {
+ 				background-color: $color_333;
+ 			}
+
+ 			&:after {
+ 				transform: rotate(180deg);
+ 			}
+
+ 			.text-dark {
+ 				color: $color_339933;
+ 			}
+ 		}
+ 	}
+
+ 	&__question {
+ 		@include fontStyle($pt_font, 18px, 18px, 700);
+ 		color: $color_fff;
+ 		background-color: $color_339933;
+ 		min-height: 65px;
+ 		padding-left: 45px;
+ 		padding-right: 75px;
+ 		padding-top: 15px;
+ 		padding-bottom: 15px;
+ 		width: 100%;
+ 		border-radius: 6px;
+ 		cursor: pointer;
+ 		transition: $transition;
+	    display: flex;
+    	align-items: center;
+
+    	.text-dark.a-s {
+		    align-self: flex-start;
+    	}
+
+    	.text-dark {
+    		margin-right: 5px;
+    	}
+ 	}
+
+ 	&__answer {
+ 		display: none;
+ 		@include fontStyle($pt_font, 16px, 16px);
+ 		color: $color_050100;
+ 		padding: 20px 0 25px;
+ 	}
+ }
+
+ .map {
+ 	height: 440px;
+ }
