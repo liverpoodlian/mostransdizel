@@ -25,6 +25,74 @@ ul {
  	&--bg {
  		background-color: $color_e7e7e7;
  	}
+
+ 	&--border {
+ 		border-top: 1px solid $color_ccc;
+ 		position: relative;
+
+ 		&:before {
+ 			@include before(-90px, calc(50% - 85px));
+ 			@include backgroundImage('/images/logo-before.png', center, contain);
+ 			z-index: 1;
+ 			width: 230px;
+ 			height: 140px;
+ 			background-color: $color_fff;
+ 		}
+ 	}
+
+ 	&--no-before {
+ 		&:before {
+ 			display: none;
+ 		}
+
+ 		.button--wrap {
+ 			position: absolute;
+ 			top: -25px;
+ 			left: calc(50% - 167.5px);
+ 			height: 50px;
+ 			width: 335px;
+ 			padding: 0 20px;
+ 			background-color: $color_fff;
+ 			z-index: 1;
+ 		}
+ 	}
+
+ 	&--map {
+ 		.content {
+ 			position: relative;
+ 		}
+ 	}
+
+ 	&--form {
+ 		border-top: 3px solid $color_cc0018;
+ 		@include backgroundImage("/images/form-bg.png", center, cover);
+
+ 		.content {
+ 			height: 440px;
+
+ 			&__left,
+ 			&__right {
+ 				width: 50%;
+ 				flex: 0 0 50%;
+ 			}
+
+ 			&__left {
+ 				padding-right: 20px;
+ 				display: flex;
+ 				flex-direction: column;
+ 				justify-content: center;
+ 				align-items: flex-start;
+ 			}
+
+ 			&__right {
+ 				padding-left: 20px;
+ 				display: flex;
+ 				flex-direction: column;
+			    justify-content: flex-end;
+			    align-items: flex-end;
+ 			}
+ 		}
+ 	}
  }
 
  .content {
@@ -49,6 +117,88 @@ ul {
  			height: 3px;
  			background-color: $color_cc0018;
  		}
+ 	}
+ }
+
+ .main-slider {
+ 	height: 441px;
+ 	border-top: 3px solid $color_fff;
+ 	border-bottom: 3px solid $color_fff;
+
+ 	&.slick-slider {
+ 		margin-bottom: 0;
+ 	}
+
+ 	&__item {
+ 		height: 435px;
+ 		animation: m 25s infinite;
+ 		background-position: center;
+ 		background-size: auto 120%;
+ 	}
+
+ 	.slick-arrow {
+ 		width: 41px;
+ 		height: 41px;
+ 		@include backgroundImage('/images/main-slider--arrow.png', center, contain, no-repeat);
+ 		z-index: 3;
+ 		text-indent: 100%;
+ 		overflow: hidden;
+ 	}
+
+ 	.slick-prev {
+ 		left: 11.5%;
+ 	}
+
+ 	.slick-next {
+ 		right: 11.5%;
+ 		transform: rotate(180deg);
+ 	}
+
+ 	.slick-dots {
+ 		bottom: 40px;
+
+ 		li {
+ 			width: 10px;
+ 			height: 10px;
+ 			border-radius: 50%;
+ 			background-color: $color_fff;
+ 			opacity: .25;
+ 			margin: 0 5px;
+ 			transition: $transition;
+
+ 			&.slick-active {
+ 				opacity: 1;
+ 			}
+ 		}
+ 	}
+
+ 	.content {
+ 		height: 435px;
+
+ 		&__left {
+ 			display: flex;
+ 			flex-direction: column;
+ 			justify-content: center;
+ 			width: 65%;
+ 		}
+ 	}
+
+ 	&__title {
+ 		@include fontStyle($pt_font, 44px, 44px, 700);
+ 		text-transform: uppercase;
+ 		color: $color_fff;
+ 		margin-bottom: 15px;
+ 	}
+
+ 	&__underline {
+ 		color: $color_050100;
+ 		border-bottom: 3px solid $color_cc0018;
+ 	}
+
+ 	&__subtext {
+ 		@include fontStyle($pt_font, 22px, 22px);
+ 		color: $color_fff;
+ 		margin-bottom: 30px;
  	}
  }
 
@@ -293,3 +443,125 @@ ul {
  .map {
  	height: 440px;
  }
+
+ .map-text {
+ 	position: absolute;
+ 	left: 0;
+ 	top: 170px;
+ 	z-index: 3;
+
+ 	&__title {
+ 		display: inline-flex;
+ 		@include fontStyle($pt_font, 44px, 44px, 700);
+ 		color: $color_050100;
+ 		text-transform: uppercase;
+ 		padding: 10px 20px 0;
+ 		background-color: $color_f7f7f7;
+ 	}
+
+ 	&__address {
+ 		@include fontStyle($pt_font, 18px, 18px);
+ 		color: $color_339933;
+ 		padding: 15px 20px;
+ 		background-color: $color_f7f7f7;
+ 	}
+ }
+
+ @keyframes m { 
+    0 { 
+        background-size: auto 120%;
+    } 
+    50% { 
+        background-size: auto 100%;
+    } 
+    100% { 
+        background-size: auto 120%;
+    } 
+}
+
+.form {
+	&__title {
+		@include fontStyle($pt_font, 44px, 44px, 700);
+		color: $color_fff;
+		text-transform: uppercase;
+	}
+
+	&__subtext {
+		@include fontStyle($pt_font, 22px, 22px);
+		color: $color_fff;
+		margin-top: 15px;
+		margin-bottom: 40px;
+	}
+
+	form {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&--name {
+		&:before {
+			@include before(calc(50% - 10px), 30px);
+			@include backgroundImage('/images/name-icon.png', center, contain);
+			width: 14px;
+			height: 20px;
+		}
+	}
+
+	&--tel {
+		&:before {
+			@include before(calc(50% - 10.5px), 20px);
+			@include backgroundImage('/images/phone-icon.png', center, contain);
+			width: 13px;
+			height: 21px;
+		}
+	}
+
+	&__input-wrap {
+		width: calc(50% - 5px);
+		flex: 0 0 calc(50% - 5px);
+		position: relative;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+	}
+
+	&__input {
+		width: 100%;
+		height: 50px;
+		padding-left: 70px;
+		padding-right: 30px;
+		@include fontStyle($pt_font, 16px, 16px);
+  		color: $color_050100;
+  		text-transform: uppercase;
+  		border-radius: 6px;
+  		background-color: $color_e7e7e7;
+  		outline: none;
+  		border: none;
+  		border-top: 2px solid $color_adadad;
+	}
+}
+
+::-webkit-input-placeholder {
+  @include fontStyle($pt_font, 16px, 16px);
+  color: $color_050100;
+  text-transform: uppercase;
+  letter-spacing: .75px;
+}
+::-moz-placeholder {
+  @include fontStyle($pt_font, 16px, 16px);
+  color: $color_050100;
+  text-transform: uppercase;
+}
+:-ms-input-placeholder {
+  @include fontStyle($pt_font, 16px, 16px);
+  color: $color_050100;
+  text-transform: uppercase;
+}
+:-moz-placeholder {
+  @include fontStyle($pt_font, 16px, 16px);
+  color: $color_050100;
+  text-transform: uppercase;
+}

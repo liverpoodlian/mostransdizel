@@ -3,8 +3,12 @@ $(function(){
 		google.maps.event.addDomListener(window, 'load', init);
 	}
 
+	initMainSlider();
 	openPricesHeader();
 	openFAQ();
+	$('input[type="tel"]').each(function() {
+		$(this).mask("+7 (999) 999-9999");
+	});
 });
 
 function openPricesHeader() {
@@ -21,6 +25,14 @@ function openFAQ() {
 			$(this).toggleClass('faq__item--open');
 		});
 	}
+}
+
+function initMainSlider() {
+	$('.main-slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: true
+	});
 }
 
 function init(flag) { 

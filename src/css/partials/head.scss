@@ -111,6 +111,10 @@
 	display: flex;
 	height: 115px;
 	border-bottom: 3px solid $color_cc0018;
+	position: sticky;
+	top: 0;
+	background-color: $color_fff;
+	z-index: 10;
 
 	&__left,
 	&__right {
