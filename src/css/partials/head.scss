@@ -185,3 +185,95 @@
 .text-dark {
 	color: $color_333;
 }
+
+.footer {
+	justify-content: space-between;
+	padding: 55px 0 110px;
+
+	p {
+		@include fontStyle($pt_font, 14px, 14px);
+		color: $color_999;
+		padding-left: 40px;
+	}
+
+	&__contacts {
+		width: 320px;
+		flex: 0 0 320px;
+	}
+
+	&__logo {
+		display: block;
+		width: 240px;
+		height: 29px;
+		@include backgroundImage("/images/footer-logo.png", center, contain, no-repeat);
+		margin-bottom: 20px;
+	}
+
+	&__copyright {
+		margin-top: 20px;
+	}
+
+	&__sitemap {
+		width: 150px;
+		flex: 0 0 150px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		a {
+			@include fontStyle($pt_font, 14px, 14px);
+			color: $color_339933;
+			text-decoration: underline;
+			margin-bottom: 15px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__time-wrap {
+		display: flex;
+
+		.header__phone {
+			color: $color_050100;
+		}
+	}
+
+	&__time {
+		margin-right: 50px;
+	}
+
+	&__info {
+		width: 455px;
+		flex: 0 0 455px;
+
+		p {
+			padding-left: 0;
+		}
+	}
+
+	&__mail {
+		margin-top: 20px;
+		display: block;
+		position: relative;
+		padding-left: 35px;
+		@include fontStyle($pt_font, 14px, 14px);
+		color: $color_339933;
+		text-decoration: underline;
+		margin-bottom: 40px;
+
+		&:before {
+			@include before(3px, 0);
+			@include backgroundImage("/images/letter-icon.png", center, contain);
+			width: 18px;
+			height: 15px;
+		}
+	}
+
+	&__policy {
+		@include fontStyle($pt_font, 14px, 14px);
+		color: $color_999;
+		text-decoration: underline;
+	}
+}
