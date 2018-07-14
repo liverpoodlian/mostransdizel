@@ -1,0 +1,48 @@
+@import "../css/partials/variables";
+@import "../css/partials/mixins";
+
+.content__title--left {
+  text-align: left;
+
+  &::after {
+    left: 0;
+  }
+}
+
+.content-margin {
+  margin-bottom: 50px;
+}
+
+p {
+  font-family: $pt_font;
+  font-size: 16px;
+  color: $color_000;
+  margin-bottom: 50px;
+}
+
+.p__title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.big-mb {
+  margin-bottom: 50px;
+
+  &--1 {
+    margin-bottom: 100px;
+  }
+}
+
+.content-column {
+  flex-direction: column;
+}
+
+.content__button-wrap {
+  margin-top: 30px;
+}
+
+.content__title--no-after {
+  &::after {
+    display: none;
+  }
+}
