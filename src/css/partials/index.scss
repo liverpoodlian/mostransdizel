@@ -925,6 +925,10 @@ p {
   &--1 {
     margin-bottom: 100px;
   }
+
+	&--2 {
+    margin-bottom: 25px;
+  }
 }
 
 .content-column {
@@ -975,5 +979,44 @@ p {
 
 	@media (max-width: $s-mobile_width) {
 		flex-direction: column;
+	}
+}
+
+table {
+	font-family: $pt_font;
+  font-size: 16px;
+  color: $color_000;
+	margin-bottom: 30px;
+
+	th {
+		font-style: italic;
+		border-bottom: 3px solid $color_cc0018;
+		padding-left: 20px;
+		text-align: left;
+		color: $color_333;
+		padding-bottom: 10px;
+		font-weight: 300;
+		border-right: 7px solid $color_fff;
+	}
+
+	tr.background {
+		background-color: $color_f2f2f2;
+		border-bottom: 3px solid $color_fff;
+	}
+
+	tr.background-dark {
+		background-color: $color_ebebeb;
+	}
+
+	td {
+		padding: 20px;
+		font-weight: bold;
+		border-right: 2px solid $color_fff;
+
+		&:first-child {
+			font-weight: normal;
+			text-align: left;
+			width: 90px;
+		}
 	}
 }
