@@ -1018,5 +1018,9 @@ table {
 			text-align: left;
 			width: 90px;
 		}
+
+		@media (max-width: $s-mobile_width) {
+			padding: 10px;
+		}
 	}
 }
