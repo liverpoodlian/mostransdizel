@@ -784,6 +784,24 @@ ul {
 		}
 	}
 
+	&--email {
+		&:before {
+			@include before(calc(50% - 10.5px), 27px);
+			@include backgroundImage('/images/email-icon.png', center, contain);
+			width: 20px;
+			height: 21px;
+		}
+	}
+
+	&--question {
+		&:before {
+			@include before(calc(50% - 10.5px), 20px);
+			@include backgroundImage('/images/question-icon.png', center, contain);
+			width: 17px;
+			height: 21px;
+		}
+	}
+
 	&__input-wrap {
 		width: calc(50% - 5px);
 		flex: 0 0 calc(50% - 5px);
@@ -1032,6 +1050,7 @@ table {
 	justify-self: end;
 	margin-right: 30px;
 	margin-top: 75px;
+	margin-bottom: 30px;
 
 	padding: 30px;
 	border: 2px solid $color_eee;
@@ -1078,6 +1097,7 @@ table {
 		position: static;
 		grid-column: 1 / 2;
 		margin-left: 30px;
+		margin-bottom: 0;
 	}
 
 	@media (max-width: $s-mobile_width) {
@@ -1100,5 +1120,124 @@ table {
 
 	@media (max-width: $big-mobile_width) {
 		grid-row: 2;
+	}
+
+	@media (max-width: $smallpc_width) {
+		margin-left: 30px;
+	}
+
+	@media (max-width: $laptop_width) {
+		margin-left: 0;
+	}
+}
+
+.contacts__form {
+	display: grid;
+	grid-template-columns: 260px 260px 200px;
+	grid-column-gap: 10px;
+	grid-row-gap: 5px;
+
+	.form__input-wrap {
+		width: 100%;
+	}
+
+	input {
+		width: 100%;
+	}
+
+	.form--name {
+		grid-column: 1 / 2;
+		grid-row: 1;
+	}
+
+	.form--tel {
+		grid-column: 2 / 3;
+		grid-row: 1;
+
+		@media (max-width: $mobile_width) {
+			grid-column: 1 / 2;
+			grid-row: 2;
+		}
+	}
+
+	.form--email {
+		grid-column: 1 / 2;
+		grid-row: 2;
+
+		@media (max-width: $mobile_width) {
+			grid-column: 1 / 2;
+			grid-row: 3;
+		}
+	}
+
+	.form--question {
+		grid-column: 2 / 3;
+		grid-row: 2;
+
+		@media (max-width: $mobile_width) {
+			grid-column: 1 / 2;
+			grid-row: 4;
+		}
+	}
+
+	.form__textarea-wrap {
+		grid-column: 1 / 4;
+		grid-row: 3;
+
+		textarea {
+			border: none;
+			outline: none;
+			resize: none;
+
+			background-color: #e7e7e7;
+			border-top: 2px solid #adadad;
+			border-radius: 6px;
+
+			width: 100%;
+			height: 150px;
+			padding: 20px;
+			padding-left: 30px;
+
+			font-size: 16px;
+			color: $color_000;
+			font-family: $pt_font;
+
+			&:hover, &:focus, &:active {
+				border: none;
+				outline: none;
+			}
+		}
+
+		@media (max-width: $tablet_width) {
+			grid-column: 1 / 3;
+		}
+
+		@media (max-width: $mobile_width) {
+			grid-column: 1 / 2;
+			grid-row: 5;
+		}
+	}
+
+	.btn {
+		grid-column: 1 / 2;
+		grid-row: 4;
+
+		@media (max-width: $mobile_width) {
+			grid-column: 1 / 2;
+			grid-row: 6;
+		}
+	}
+
+	@media (max-width: $tablet_width) {
+		grid-template-columns: 240px 240px;
+	}
+
+	@media (max-width: $big-mobile_width) {
+		width: 100%;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: $mobile_width) {
+		grid-template-columns: 1fr;
 	}
 }
