@@ -6,6 +6,9 @@ $(function(){
 	initMainSlider();
 	openPricesHeader();
 	openFAQ();
+	initProdSlider();
+	openMenu();
+
 	$('input[type="tel"]').each(function() {
 		$(this).mask("+7 (999) 999-9999");
 	});
@@ -72,5 +75,62 @@ function init(flag) {
 			infowindow.setContent(this.title); 
 			infowindow.open(map, this); 
 		}); 
+	});
+}
+
+function initProdSlider() {
+	if($('.production').length > 0) {
+		$('.production').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			dots: true,
+			arrows: false,
+			responsive: [
+				{
+					breakpoint: 1200,
+					settings: {
+						slidesToShow: 3
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 2
+					}
+				},
+				{
+					breakpoint: 481,
+					settings: {
+						slidesToShow: 1
+					}
+				}
+			]
+		});
+
+		$('.production').find('.slick-active').eq(1).find('.production__type').css('background-color', '#339933');
+		$('.production').find('.slick-active').eq(1).find('.production__price').css('background-color', '#266635');
+		$('.production').find('.slick-active').eq(2).find('.production__type').css('background-color', '#278227');
+		$('.production').find('.slick-active').eq(2).find('.production__price').css('background-color', '#184f25');
+		$('.production').find('.slick-active').eq(3).find('.production__type').css('background-color', '#1c6c1c');
+		$('.production').find('.slick-active').eq(3).find('.production__price').css('background-color', '#174922');
+
+		$('.production').on('afterChange', function(slider, direction) {
+			$('.production').find('.slick-active').eq(0).find('.production__type').css('background-color', '#47af47');
+			$('.production').find('.slick-active').eq(0).find('.production__price').css('background-color', '#387d48');
+			$('.production').find('.slick-active').eq(1).find('.production__type').css('background-color', '#339933');
+			$('.production').find('.slick-active').eq(1).find('.production__price').css('background-color', '#266635');
+			$('.production').find('.slick-active').eq(2).find('.production__type').css('background-color', '#278227');
+			$('.production').find('.slick-active').eq(2).find('.production__price').css('background-color', '#184f25');
+			$('.production').find('.slick-active').eq(3).find('.production__type').css('background-color', '#1c6c1c');
+			$('.production').find('.slick-active').eq(3).find('.production__price').css('background-color', '#174922');
+		});
+	}
+}
+
+function openMenu() {
+	$('.burger, .menu__close').on('click', function() {
+		$('body').toggleClass('opened');
+		$(this).toggleClass('opened');
+		$('.menu').toggleClass('menu--opened');
 	});
 }
