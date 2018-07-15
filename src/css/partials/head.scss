@@ -191,6 +191,7 @@
 
 	.burger {
 		margin-right: 40px;
+		cursor: pointer;
 
 		@media (max-width: $big-mobile_width) {
 			margin-right: 0;
