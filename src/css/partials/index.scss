@@ -859,6 +859,7 @@ ul {
 }
 
 .photos {
+	display: flex;
 	flex-wrap: wrap;
 	margin-top: 50px;
 
@@ -1048,7 +1049,6 @@ table {
 	flex-direction: column;
 	grid-column: 2 / 3;
 	justify-self: end;
-	margin-right: 30px;
 	margin-top: 75px;
 	margin-bottom: 30px;
 
@@ -1107,7 +1107,7 @@ table {
 
 .content__body {
 	display: grid;
-	grid-template-columns: calc(100% - 300px) 300px;
+	grid-template-columns: calc(100% - 280px) 280px;
 	justify-content: space-between;
 
 	@media (max-width: $big-mobile_width) {
@@ -1136,6 +1136,7 @@ table {
 	grid-template-columns: 260px 260px 200px;
 	grid-column-gap: 10px;
 	grid-row-gap: 5px;
+	margin-bottom: 50px;
 
 	.form__input-wrap {
 		width: 100%;
