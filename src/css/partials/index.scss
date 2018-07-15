@@ -910,7 +910,7 @@ p {
   margin-bottom: 50px;
 
 	@media (max-width: $tablet_width) {
-		margin-bottom: 0;
+		margin-bottom: 30px;
 	}
 }
 
@@ -924,6 +924,10 @@ p {
 
   &--1 {
     margin-bottom: 100px;
+  }
+
+	&--2 {
+    margin-bottom: 25px;
   }
 }
 
@@ -975,5 +979,126 @@ p {
 
 	@media (max-width: $s-mobile_width) {
 		flex-direction: column;
+	}
+}
+
+table {
+	font-family: $pt_font;
+  font-size: 16px;
+  color: $color_000;
+	margin-bottom: 30px;
+
+	th {
+		font-style: italic;
+		border-bottom: 3px solid $color_cc0018;
+		padding-left: 20px;
+		text-align: left;
+		color: $color_333;
+		padding-bottom: 10px;
+		font-weight: 300;
+		border-right: 7px solid $color_fff;
+	}
+
+	tr.background {
+		background-color: $color_f2f2f2;
+		border-bottom: 3px solid $color_fff;
+	}
+
+	tr.background-dark {
+		background-color: $color_ebebeb;
+	}
+
+	td {
+		padding: 20px;
+		font-weight: bold;
+		border-right: 2px solid $color_fff;
+
+		&:first-child {
+			font-weight: normal;
+			text-align: left;
+			width: 90px;
+		}
+
+		@media (max-width: $s-mobile_width) {
+			padding: 10px;
+		}
+	}
+}
+
+.right-menu {
+	display: flex;
+	flex-direction: column;
+	grid-column: 2 / 3;
+	justify-self: end;
+	margin-right: 30px;
+	margin-top: 75px;
+
+	padding: 30px;
+	border: 2px solid $color_eee;
+	width: 200px;
+	height: 280px;
+	border-radius: 8px;
+
+	position: sticky;
+	top: 40%;
+	background-color: $color_fff;
+	z-index: 1;
+
+	span {
+		font-family: $pt_font;
+		font-size: 16px;
+		color: black;
+		display: inline-block;
+		margin-bottom: 15px;
+		text-transform: uppercase;
+	}
+
+	a {
+		font-family: $pt_font;
+		font-size: 16px;
+		color: $color_49a149;
+		margin-bottom: 10px;
+		text-decoration: underline;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.right-menu__current {
+		color: $color_000;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	@media (max-width: $big-mobile_width) {
+		grid-row: 1;
+		justify-self: start;
+		margin-top: 30px;
+		position: static;
+		grid-column: 1 / 2;
+		margin-left: 30px;
+	}
+
+	@media (max-width: $s-mobile_width) {
+		margin-left: 15px;
+	}
+}
+
+.content__body {
+	display: grid;
+	grid-template-columns: calc(100% - 300px) 300px;
+	justify-content: space-between;
+
+	@media (max-width: $big-mobile_width) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.content__text {
+	grid-row: 1;
+
+	@media (max-width: $big-mobile_width) {
+		grid-row: 2;
 	}
 }
