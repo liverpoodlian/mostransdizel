@@ -32,7 +32,7 @@ ul {
  		position: relative;
 
  		&:before {
- 			@include before(-90px, calc(50% - 85px));
+ 			@include before(-90px, calc(50% - 115px));
  			@include backgroundImage('/images/logo-before.png', center, contain);
  			z-index: 1;
  			width: 230px;
@@ -624,6 +624,8 @@ ul {
  		}
 
  		&--mobile {
+ 			display: none;
+
  			@media (max-width: $tablet_width) {
  				display: flex;
  			}
@@ -1240,5 +1242,110 @@ table {
 
 	@media (max-width: $mobile_width) {
 		grid-template-columns: 1fr;
+	}
+}
+
+.production {
+	margin-top: 40px;
+	overflow: hidden;
+
+	&__item {
+		outline: none;
+		padding: 0 2px;
+		padding-bottom: 40px;
+	}
+
+	&__type {
+		padding: 50px;
+		background-color: $color_47af47;
+		text-align: center;
+		margin-bottom: 2px;
+	}
+
+	&__name {
+		@include fontStyle($pt_font, 62px, 62px, 700);
+		color: $color_fff;
+		margin-bottom: 20px;
+
+		@media (max-width: $s_mobile_width) {
+			font-size: 40px;
+		}
+	}
+
+	&__sort {
+		font-size: 25px;
+		display: block;
+
+		@media (max-width: $s_mobile_width) {
+			font-size: 20px;
+		}
+	}
+
+	&__subname {
+		@include fontStyle($pt_font, 18px, 18px);
+		color: $color_fff;
+
+		@media (max-width: $s_mobile_width) {
+			font-size: 16px;
+		}
+	}
+
+	&__price {
+		@include fontStyle($pt_font, 44px, 44px);
+		color: $color_fff;
+		background-color: $color_387d48;
+		padding: 25px;
+		text-align: center;
+		margin-bottom: 2px;
+
+		@media (max-width: $s_mobile_width) {
+			font-size: 30px;
+		}
+	}
+
+	.btn {
+		height: 50px;
+		width: 100%;
+	}
+
+	.slick-dots {
+ 		bottom: 0px;
+
+ 		li {
+ 			width: 10px;
+ 			height: 10px;
+ 			border-radius: 50%;
+ 			background-color: $color_ccc;
+ 			margin: 0 5px;
+ 			transition: $transition;
+
+ 			&.slick-active {
+ 				background-color: $color_333;
+ 			}
+ 		}
+ 	}
+
+	&--subtext {
+		@include fontStyle($pt_font, 18px, 18px);
+		font-style: italic;
+		color: $color_999;
+		text-align: center;
+		width: 100%;
+		flex: 0 0 100%;
+		margin-bottom: 150px;
+	}
+}
+
+.slick-dots {
+	li {
+		button {
+			padding: 0;
+			width: 10px;
+			height: 10px;
+
+			&:before {
+				display: none;
+			}
+		}
 	}
 }
