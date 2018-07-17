@@ -262,6 +262,14 @@
 	&__phone {
 		@include fontStyle($pt_font, 22px, 22px, 700);
 		color: $color_339933;
+
+		@media (max-width: $laptop_width) {
+			font-size: 18px;
+		}
+
+		@media (max-width: $tablet_width) {
+			font-size: 22px;
+		}
 	}
 
 	.btn {
@@ -361,8 +369,17 @@
 	&__time-wrap {
 		display: flex;
 
-		@media (max-width: $mobile_width) {
+		@media (max-width: $tablet_width) {
 			flex-direction: column;
+			margin-bottom: 30px;
+
+			.btn {
+				max-width: 250px;
+			}
+		}
+
+		@media (max-width: $big-mobile_width) {
+			align-items: center;
 		}
 
 		.header__phone {
@@ -373,7 +390,7 @@
 	&__time {
 		margin-right: 50px;
 
-		@media (max-width: $mobile_width) {
+		@media (max-width: $tablet_width) {
 			margin-right: 0;
 			margin-bottom: 30px;
 		}
@@ -386,8 +403,8 @@
 	}
 
 	&__info {
-		width: 455px;
-		flex: 0 0 455px;
+		width: 485px;
+		flex: 0 0 485px;
 
 		@media (max-width: $tablet_width) {
 			width: 365px;
@@ -470,6 +487,7 @@ body {
 	padding: 45px;
 	padding-right: 35px;
 	transition: $transition;
+	z-index: -1;
 
 	@media (max-width: $tablet_width) {
 		width: 100%;
@@ -482,6 +500,7 @@ body {
 
 	&--opened {
 		opacity: 1;
+		z-index: 1;
 		width: 280px;
 
 		@media (max-width: $tablet_width) {

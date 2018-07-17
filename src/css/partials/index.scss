@@ -39,6 +39,10 @@ ul {
  			height: 140px;
  			background-color: $color_fff;
  		}
+
+ 		.content__title {
+ 			margin-top: 100px;
+ 		}
  	}
 
  	&--no-before {
@@ -291,7 +295,7 @@ ul {
 	 		flex-direction: column;
 	 		align-items: center;
 
-	 		.btn--call {
+	 		.btn:first-child {
 	 			margin-bottom: 30px;
 	 		}
  		}
@@ -486,6 +490,7 @@ ul {
 
  	&--text-center {
  		margin-top: 35px;
+ 		margin-bottom: 75px;
 
  		.useful__item {
  			justify-content: flex-start;
@@ -496,7 +501,6 @@ ul {
  			display: flex;
  			justify-content: center;
  			width: 185px;
- 			flex: 0 0 185px;
 
  			@media (max-width: $tablet_width) {
  				flex: auto;
@@ -1206,7 +1210,6 @@ table {
 			font-family: $pt_font;
 
 			&:hover, &:focus, &:active {
-				border: none;
 				outline: none;
 			}
 		}
@@ -1336,6 +1339,48 @@ table {
 	}
 }
 
+.slick-arrow.production--next,
+.slick-arrow.production--prev {
+	position: absolute;
+	width: 41px;
+	height: 41px;
+	@include backgroundImage('/images/main-slider--arrow.png', center, contain, no-repeat);
+	z-index: 3;
+	text-indent: 100%;
+	overflow: hidden;
+	top: 75px;
+	cursor: pointer;
+
+	@media (max-width: $s_mobile_width) {
+		display: none !important;
+	}
+}
+
+.slick-arrow.production--prev {
+	left: 20%;
+
+	@media (max-width: $tablet_width) {
+		left: 10%;
+	}
+
+	@media (max-width: $big-mobile_width) {
+		left: 30px;
+	}
+}
+
+.slick-arrow.production--next {
+	right: 20%;
+	transform: rotate(180deg);
+
+	@media (max-width: $tablet_width) {
+		right: 10%;
+	}
+
+	@media (max-width: $big-mobile_width) {
+		right: 30px;
+	}
+}
+
 .slick-dots {
 	li {
 		button {
@@ -1347,5 +1392,273 @@ table {
 				display: none;
 			}
 		}
+	}
+}
+
+.btn {
+	padding-left: 85px;
+	padding-right: 45px;
+	border-radius: 5px;
+	height: 55px;
+	@include fontStyle($pt_font, 14px, 14px, 700);
+	text-transform: uppercase;
+	outline: none;
+	-webkit-appearance: none;
+	border: none;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+
+	&:before {
+		@include before(0, 0);
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+
+	&:after {
+		@include before(0, 0);
+		width: 60px;
+		height: 55px;
+		border-right: 1px solid $color_ff3d49;
+		background-position: center;
+		background-size: auto;
+		background-repeat: no-repeat;
+		z-index: 2;
+	}
+
+	span {
+		position: relative;
+		z-index: 2;
+		white-space: nowrap;
+	}
+
+	&--call {
+		&:after {
+			background-image: url(/images/button-phone.png);
+		}
+	}
+
+	&--check {
+		transition: $transition;
+
+		&:after {
+			transition: $transition;
+			background-image: url(/images/button-check.png);
+		}
+
+		&:hover {
+			background-color: #5a5a5a;
+			color: $color_fff;
+			border-color: transparent;
+			box-shadow: 0px 5px 18px 0px rgba(0,0,0,0.46);
+			transform: translateY(-5px);
+
+			&:before {
+				background: linear-gradient(0deg, #1f1f1f 0%, rgba(31,31,31, 0) 100%);
+			}
+
+			&:after {
+				background-image: url(/images/button-check-green.png);
+				border-right-color: $color_767676;
+			}
+		}
+	}
+
+	&--call,
+	&--check {
+		background-color: $color_ce0118;
+		border: 1px solid #C32A01;
+		box-shadow: 0 5px 0 0 #A6130E;
+
+		&:before {
+			background: linear-gradient(180deg, #FF1313 0%, rgba(252,48,42,0) 100%);
+		}
+	}
+
+	&--link {
+		background-color: #D6D6D6;
+		box-shadow: 0 5px 0 0 #A3A3A3;
+
+		&:before {
+			background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+		}
+
+		&:after {
+			background-image: url(/images/button-triangle.png);
+			border-right: 1px solid #E2E2E2;
+		}
+	}
+}
+
+.form-popup {
+	display: none;
+
+	@media (max-width: $mobile_width) {
+		padding: 0 !important;
+		max-width: 320px;
+		overflow: visible !important;
+	}
+	.h2 {
+		margin-top: 0;
+		padding-bottom: 0;
+		margin-bottom: 40px;
+
+		@media (max-width: $mobile_width) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__wrap {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		padding: 80px 75px 3px;
+		@include backgroundImage("/images/popup-bg.png", center, cover, no-repeat);
+		border: 4px solid $color_cc0018;
+		border-radius: 10px;
+		position: relative;
+		max-height: 450px;
+		margin-bottom: 45px;
+
+		@media (max-width: $tablet_width) {
+			padding: 20px 30px 3px;
+		}
+
+		@media (max-width: $big-mobile_width) {
+			flex-direction: column;
+		}
+
+		@media (max-width: $mobile_width) {
+			padding: 20px 10px 3px;
+			margin-bottom: 25px;
+		}
+
+		&:before {
+			@include before(0px, 0px);
+			width: calc(100% - 4px);
+			height: calc(100% - 4px);
+			border-radius: 5px;
+			border: 2px solid $color_fff;
+			pointer-events: none;
+		}
+
+		.content__left {
+			width: 50%;
+			flex: 0 0 50%;
+			padding-bottom: 70px;
+
+			@media (max-width: $tablet_width) {
+				width: 60%;
+				flex: 0 0 60%;
+			}
+
+			@media (max-width: $big-mobile_width) {
+				width: 100%;
+				flex: none;
+				padding-bottom: 30px;
+			}
+
+			@media (max-width: $s_mobile_width) {
+				text-align: center;
+			}
+		}
+
+		.content__right {
+		    display: flex;
+		    flex-direction: column;
+		    align-items: flex-end;
+		    justify-content: flex-end;
+		    position: relative;
+		    z-index: 2;
+
+		    img {
+				@media (max-width: $tablet_width) {
+					width: 100%;
+				}
+
+				@media (max-width: $big-mobile_width) {
+					display: none;
+				}
+			}
+		}
+
+		.form {
+
+			form {
+				@media (max-width: $s_mobile_width) {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+
+			&__title {
+				max-width: 460px;
+
+				@media (max-width: $big-mobile_width) {
+					font-size: 30px;
+				}
+
+				@media (max-width: $mobile_width) {
+					font-size: 25px;
+				}
+			}
+
+			&__subtext {
+				@media (max-width: $big-mobile_width) {
+					font-size: 18px;
+				}
+			}
+
+			&__input-wrap {
+				max-width: 270px;
+
+				@media (max-width: $s_mobile_width) {
+					width: 270px;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	&__img {
+		width: 100%;
+		text-align: center;
+
+		img {
+			@media (max-width: $mobile_width) {
+				width: 300px;
+			}
+		}
+	}
+}
+
+.fancybox-bg {
+	background-color: $color_fff;
+}
+
+.fancybox-is-open {
+	.fancybox-bg {
+		opacity: 1;
+	}
+}
+
+.fancybox-close-small {
+	top: 45px;
+	right: 25px;
+	width: 21px;
+	height: 21px;
+	@include backgroundImage('/images/form-close.png', center, cover, no-repeat);
+
+	@media (max-width: $s_mobile_width) {
+		top: 25px;
+	}
+
+	@media (max-width: $mobile_width) {
+		top: -25px;
+	}
+
+	&:after {
+		display: none;
 	}
 }
