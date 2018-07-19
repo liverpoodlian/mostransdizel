@@ -302,6 +302,7 @@
 		@include fontStyle($pt_font, 14px, 14px);
 		color: $color_999;
 		padding-left: 40px;
+		margin-bottom: 0;
 
 		@media (max-width: $big-mobile_width) {
 			padding-left: 0;
@@ -336,7 +337,7 @@
 	}
 
 	&__copyright {
-		margin-top: 20px;
+		margin-top: 25px;
 
 		@media (max-width: $big-mobile_width) {
 			display: none;
@@ -368,6 +369,16 @@
 
 	&__time-wrap {
 		display: flex;
+
+		.btn {
+			padding-left: 75px;
+			padding-right: 35px;
+			height: 40px;
+
+			&:after {
+				height: 40px;
+			}
+		}
 
 		@media (max-width: $tablet_width) {
 			flex-direction: column;

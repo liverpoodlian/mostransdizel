@@ -2,6 +2,10 @@
 	box-sizing: border-box;
 }
 
+.fancybox-enabled {
+	overflow: auto;
+}
+
 body,
 h1,
 .h1,
@@ -59,6 +63,12 @@ ul {
  			padding: 0 20px;
  			background-color: $color_fff;
  			z-index: 1;
+
+ 			.btn {
+ 				width: 100%;
+ 				padding-left: 75px;
+ 				padding-right: 25px;
+ 			}
  		}
  	}
 
@@ -290,7 +300,11 @@ ul {
  	}
 
  	&__button-wrap {
- 		@media (max-width: $mobile_width) {
+ 		.btn--check {
+ 			margin-right: 15px;
+ 		}
+
+ 		@media (max-width: $s_mobile_width + 50px) {
 	 		display: flex;
 	 		flex-direction: column;
 	 		align-items: center;
@@ -1400,7 +1414,7 @@ table {
 	padding-right: 45px;
 	border-radius: 5px;
 	height: 55px;
-	@include fontStyle($pt_font, 14px, 14px, 700);
+	@include fontStyle($pt_font, 16px, 16px, 700);
 	text-transform: uppercase;
 	outline: none;
 	-webkit-appearance: none;
@@ -1461,6 +1475,7 @@ table {
 			&:after {
 				background-image: url(/images/button-check-green.png);
 				border-right-color: $color_767676;
+				transform: translateY(-5px);
 			}
 		}
 	}
@@ -1470,6 +1485,7 @@ table {
 		background-color: $color_ce0118;
 		border: 1px solid #C32A01;
 		box-shadow: 0 5px 0 0 #A6130E;
+		color: $color_fff;
 
 		&:before {
 			background: linear-gradient(180deg, #FF1313 0%, rgba(252,48,42,0) 100%);
@@ -1504,7 +1520,7 @@ table {
 		padding-bottom: 0;
 		margin-bottom: 40px;
 
-		@media (max-width: $mobile_width) {
+		@media (max-width: $smallpc_width) {
 			margin-bottom: 20px;
 		}
 	}
@@ -1521,6 +1537,12 @@ table {
 		max-height: 450px;
 		margin-bottom: 45px;
 
+		@media (max-width: $smallpc_width) {
+			margin-bottom: 20px;
+			padding-top: 20px;
+			max-height: 390px;
+		}
+
 		@media (max-width: $tablet_width) {
 			padding: 20px 30px 3px;
 		}
@@ -1531,7 +1553,6 @@ table {
 
 		@media (max-width: $mobile_width) {
 			padding: 20px 10px 3px;
-			margin-bottom: 25px;
 		}
 
 		&:before {
